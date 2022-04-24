@@ -19,7 +19,7 @@
 
 <div class="container">
   <div class="row">
-    <!-- Blog Entries column -->
+    <!-- Begin Blog Entries column -->
     <div class="col-md-8 mt-3 left">
       {% for post in post_list %}
       <div class="card mb-4">
@@ -34,9 +34,25 @@
     </div>
     <!-- End of Blog Entries column -->
 
-    <!-- Sidebar -->
+    <!-- Begin Sidebar -->
     {% block sidebar %} {% include 'blog/sidebar.html' %} {% endblock sidebar %}
     <!-- End of Sidebar -->
   </div>
 </div>
+
+<!-- Begin Pagination -->
+{% if is_paginated %}
+  <nav aria-label="Page navigation container">
+    <ul class="pagination justify-content-center">
+      {% if page_obj.has_previous %}
+      <li><a class="page-link" href="?page={{ page_obj.previous_page_number }}">&laquo; PREV </a></li>
+      {% endif %}
+      {% if page_obj.has_next %}
+      <li><a class="page-link" href="?page={{ page_obj.next_page_number }}"> NEXT &raquo;</a></li>
+      {% endif %}
+    </ul>
+  </nav>
+{% endif %}
+<!-- End Pagination -->
+
 {% endblock content %}
