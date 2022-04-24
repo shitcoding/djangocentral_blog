@@ -1,0 +1,51 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>{% block title %}{% endblock title %}</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:400,700" />
+  {% block additional_styles %}{% endblock additional_styles %}
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous" />
+  <link rel="stylesheet" href="{% static 'blog/css/blog.css' %}">
+  <meta name="google" content="notranslate">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+</head>
+
+<body>
+  <!-- Navigation -->
+  <nav id="mainNav" class="navbar navbar-expand-lg navbar-light bg-light shadow">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="{% url 'home' %}">Awesome News</a>
+      <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div id="navbarResponsive" class="collapse navbar-collapse">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item text-black">
+            <a class="nav-link text-black-font-weight-bold" href="#">About</a>
+          </li>
+          <li class="nav-item text-black">
+            <a class="nav-link text-black-font-weight-bold" href="#">Authors</a>
+          </li>
+          <li class="nav-item text-black">
+            <a class="nav-link text-black-font-weight-bold" href="#">Contacts</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <!-- End of Navigation -->
+
+  <!-- Blog content -->
+  {% block content %}
+  {% endblock content %}
+  <!-- End of Blog content -->
+
+  <!-- Footer -->
+  <footer class="py-3 bg-grey">
+    <p class="m-0 text-dark text-center">Copyright &copy; Awesome News</p>
+  </footer>
+  <!-- End of Footer -->
+</body>
+</html>
